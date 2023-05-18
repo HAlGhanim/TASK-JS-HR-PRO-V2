@@ -62,4 +62,3 @@ const managersList = managersJSON.map((manager) => {
     manager.salary
   );
 });
-console.log(managersList);
