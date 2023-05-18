@@ -10,8 +10,7 @@ class Employee {
   }
 
   idBadge = () => {
-    return `${(this.position = this.position)} : ${(this.position =
-      this.name.split(" ")[0])} `;
+    return `${this.position} : ${this.name.split(" ")[0]} `;
   };
 }
 
