@@ -41,6 +41,8 @@ class Manager extends Employee {
 }
 const manager1 = new Manager("Amy Wilson", "Senior Manager", 2012, 10000, 0.1);
 
+manager1.logManagerInfo();
+console.log(manager1.getWorkingYears()); // 11
 console.log(manager1.salary); // 10000
 manager1.salaryIncrease(20);
 console.log(manager1.salary); // 10020
