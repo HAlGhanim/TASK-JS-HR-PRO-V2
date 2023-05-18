@@ -10,10 +10,8 @@ class Employee {
   }
 
   idBadge = () => {
-    const pName = {};
-    return `${(pName[this.position] = this.position)} : ${(pName[
-      this.position
-    ] = this.name.split(" ")[0])} `;
+    return `${(this.position = this.position)} : ${([this.position] =
+      this.name.split(" ")[0])} `;
   };
 }
 
@@ -48,7 +46,7 @@ manager1.salaryIncrease(20);
 console.log(manager1.salary); // 10020
 
 const employeesList = employeesJSON.map((employee) => {
-  new Employee(
+  employee = new Employee(
     employee.name,
     employee.position,
     employee.yearJoined,
@@ -57,10 +55,11 @@ const employeesList = employeesJSON.map((employee) => {
 });
 
 const managersList = managersJSON.map((manager) => {
-  new Manager(
+  manager = new Manager(
     manager.name,
     manager.position,
     manager.yearJoined,
     manager.salary
   );
 });
+console.log(managersList);
