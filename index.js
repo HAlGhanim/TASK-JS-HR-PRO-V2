@@ -16,6 +16,7 @@ class Employee {
 
 const employee1 = new Employee("Michael Brown", "Developer", 2016, 5500);
 console.log(employee1.idBadge());
+console.log(employee1.name); // Michael Brown
 
 class Manager extends Employee {
   constructor(name, position, yearJoined, salary, bonusPercentage) {
@@ -82,13 +83,9 @@ managers.forEach((manager) => {
   manager.logManagerInfo();
 });
 
-const seniorExecutives = [];
-
-managers.filter((manager) => {
-  if (manager.getWorkingYears() > 11) {
-    seniorExecutives.push(manager);
-  }
-});
+const seniorExecutives = managers.filter(
+  (manager) => manager.getWorkingYears() > 11
+);
 
 console.log(seniorExecutives);
 
