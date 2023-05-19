@@ -44,20 +44,80 @@ console.log(manager1.salary); // 10000
 manager1.salaryIncrease(20);
 console.log(manager1.salary); // 10020
 
-const employeesList = employeesJSON.map((employee) => {
-  employee = new Employee(
+const employees = employeesJSON.map((employee) => {
+  return (employee = new Employee(
     employee.name,
     employee.position,
     employee.yearJoined,
     employee.salary
-  );
+  ));
 });
 
-const managersList = managersJSON.map((manager) => {
-  manager = new Manager(
+const managers = managersJSON.map((manager) => {
+  return (manager = new Manager(
     manager.name,
     manager.position,
     manager.yearJoined,
-    manager.salary
+    manager.salary,
+    manager.bonusPercentage
+  ));
+});
+
+employees.forEach((employee) => {
+  console.log(employee.idBadge());
+});
+
+const superHeros = employees.filter((employee) => {
+  return employee.position === "Developer";
+});
+
+console.log(superHeros);
+managers.map((manager) => {
+  if (manager.getWorkingYears() > 11) {
+    return manager.salaryIncrease(1000);
+  }
+});
+console.log(managers[4]);
+managers.forEach((manager) => {
+  manager.logManagerInfo();
+});
+
+const seniorExecutives = [];
+
+managers.filter((manager) => {
+  if (manager.getWorkingYears() > 11) {
+    seniorExecutives.push(manager);
+  }
+});
+
+console.log(seniorExecutives);
+
+const lowestBonus = managers.find((manager) => {
+  return manager.bonusPercentage === 0.1;
+});
+console.log(lowestBonus);
+
+const promotionCandidate = employees.find((employee) => {
+  return employee.salary > 8000;
+});
+console.log(promotionCandidate);
+
+const mostPaidEmployee = employees.find((employee) => {
+  return (
+    employee.salary ===
+    Math.max(...employees.map((employee) => employee.salary))
   );
 });
+console.log(mostPaidEmployee);
+
+const totalSalary = employees.reduce(
+  (total, employee) => total + employee.salary,
+  0
+);
+console.log(`Total employee salaries: ${totalSalary}$`);
+
+const employeesSorted = employees.sort(
+  (lower, higher) => lower.yearJoined - higher.yearJoined
+);
+
+console.log(employeesSorted); // starts with 2012 ends with 2020
